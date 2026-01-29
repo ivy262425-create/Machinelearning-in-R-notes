@@ -1,7 +1,8 @@
 # This is one of the assignments for Analytics Software, and also my first complete code.
 # It covers the entire process from data collection to model training and performance evaluation.
 # Although there are still many shortcomings, it is a good attempt!
-# 这是Analytics Software的作业之一，也是第一次写的完整代码，由收集数据到训练模型，到评估提升，虽然还有很多不足，但是是个好的尝试耶！
+# 这是Analytics Software的作业之一，也是第一次写的完整代码，
+# 由收集数据到训练模型，到评估提升，虽然还有很多不足，但是是个好的尝试耶！
 
 # 1. Collectinng data
 adult <- read.csv("E:\\zxy.ntu\\Analytics Solftware\\Individual\\adult.data")
@@ -137,4 +138,5 @@ ggplot(top10, aes(x = reorder(Variable, MeanDecreaseGini), y = MeanDecreaseGini)
 #    learning from others revealed many ways to improve.
 #    After studying NLP, I realized the wide possibilities
 #    for model optimization.
+
 
