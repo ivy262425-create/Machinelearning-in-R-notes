@@ -1,3 +1,8 @@
+# This is one of the assignments for Analytics Software, and also my first complete code.
+# It covers the entire process from data collection to model training and performance evaluation.
+# Although there are still many shortcomings, it is a good attempt!
+# 这是Analytics Software的作业之一，也是第一次写的完整代码，由收集数据到训练模型，到评估提升，虽然还有很多不足，但是是个好的尝试耶！
+
 # 1. Collectinng data
 adult <- read.csv("E:\\zxy.ntu\\Analytics Solftware\\Individual\\adult.data")
 install.packages(c("ggplot2", "dplyr", "readr", "gridExtra"))
@@ -6,6 +11,7 @@ library(dplyr)
 library(readr)
 library(gridExtra)
 library(patchwork)
+
 # 2. Exploring and preparing the data
 str(adult)
 # Age Distribution (Histogram)
@@ -56,6 +62,7 @@ adult_train <- adult[train_sample2,]
 adult_test <- adult[-train_sample2,]
 prop.table(table(adult_train$income))
 prop.table(table(adult_test$income))
+
 # 3. Training a model on the data
 install.packages("C50")
 library(C50)
@@ -64,6 +71,7 @@ adult_model <- C5.0(adult_train[-c(3,15)], adult_train$income)
 adult_model
 # to see the tree's decisions
 summary(adult_model)
+
 # 4. Evaluating model performance
 adult_pred  <- predict(adult_model, adult_test)
 install.packages("gmodels")
@@ -107,3 +115,26 @@ ggplot(top10, aes(x = reorder(Variable, MeanDecreaseGini), y = MeanDecreaseGini)
        x = "Variable",
        y = "Importance") +
   theme_minimal()
+## ---- 回顾与反思 ----
+# 1. 基础尝试：这是最初的完整代码，涵盖了数据收集、建模与评估。
+# 2. 改进方向：
+#    - EDA：不仅是简单绘图，而是深入分析变量关系，
+#      为后续的变量选择、特征工程和模型奠定逻辑基础。
+#    - 模型优化：参数调试方法需要更系统化，
+#      当时随意设定参数反而导致模型表现下降。
+# 3. 学习收获：在之后的 group project 中，
+#    借鉴他人方法发现很多提升空间。
+#    学习 NLP 后，更意识到模型优化的可操作性。
+# ---- Reflection ----
+# 1. Initial attempt: This was my first complete code,
+#    covering data collection, modeling, and evaluation.
+# 2. Areas for improvement:
+#    - EDA: Go beyond simple plotting; analyze variable relationships
+#      to support feature selection, engineering, and logical modeling.
+#    - Model optimization: Parameter tuning should be more systematic.
+#      At that time, random parameter choices even worsened performance.
+# 3. Key learnings: In later group projects,
+#    learning from others revealed many ways to improve.
+#    After studying NLP, I realized the wide possibilities
+#    for model optimization.
+
